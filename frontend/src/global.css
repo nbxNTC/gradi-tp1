@@ -13,15 +13,17 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width:9px;
+  width: 9px;
   
   position: fixed;
-
-  background-color: #babac052;
-  border-radius:16px;
+  border-radius: 16px;
 }
 
 *::-webkit-scrollbar-thumb {
   background-color:#babac0;
-  border-radius:16px;
+  border-radius: 16px;
+}
+
+.container {
+  min-height: 100vh;
 }
