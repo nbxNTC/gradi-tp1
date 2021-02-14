@@ -6,6 +6,11 @@ export default {
     async create(request: Request, response: Response) {
         const {
             name,
+            birth_date,
+            weight,
+            height,
+            gender,
+            observation,
             role
         } = request.body;
     
@@ -13,6 +18,11 @@ export default {
     
         const user = UserRepository.create({
             name,
+            birth_date,
+            weight,
+            height,
+            gender,
+            observation,
             role
         })
     
@@ -36,5 +46,16 @@ export default {
         const user = await userRepository.findOneOrFail(id);
 
         return response.status(200).json(user);
-    }
+    },
+
+    async records(request: Request, response: Response) {
+        const { id } = request.params;
+        const userRepository = getRepository(User);
+
+        const user = await userRepository.find({
+            relations: ['records']
+        });
+
+        return response.status(200).json(user);
+    },
 }

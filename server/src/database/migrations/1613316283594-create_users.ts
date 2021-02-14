@@ -19,6 +19,26 @@ export class createUsers1613316283594 implements MigrationInterface {
                     type: 'varchar'
                 },
                 {
+                    name: 'birth_date',
+                    type: 'date'
+                },
+                {
+                    name: 'weight',
+                    type: 'decimal'
+                },
+                {
+                    name: 'height',
+                    type: 'decimal'
+                },
+                {
+                    name: 'gender',
+                    type: 'boolean'
+                },
+                {
+                    name: 'observation',
+                    type: 'text'
+                },
+                {
                     name: 'role',
                     type: 'boolean'
                 }
