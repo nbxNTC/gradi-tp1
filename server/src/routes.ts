@@ -4,6 +4,8 @@ const routes = Router();
 
 routes.post('/users', UserController.create);
 
-routes.get('/users', UserController.list);
+routes.get('/users', UserController.index);
+
+routes.get('/users/:id', UserController.show);
 
 export default routes;

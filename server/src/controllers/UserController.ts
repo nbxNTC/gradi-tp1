@@ -21,11 +21,20 @@ export default {
         return response.status(201).json(user);
     },
 
-    async list(request: Request, response: Response) {
+    async index(request: Request, response: Response) {
         const userRepository = getRepository(User);
 
         const users = await userRepository.find();
 
         return response.status(200).json(users);
+    },
+
+    async show(request: Request, response: Response) {
+        const { id } = request.params;
+        const userRepository = getRepository(User);
+
+        const user = await userRepository.findOneOrFail(id);
+
+        return response.status(200).json(user);
     }
 }
