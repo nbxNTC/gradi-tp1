@@ -24,10 +24,16 @@ const App = () => {
       },
       MuiButton: {
         root: {
-          padding: '.8rem 0'
+          padding: '.8rem 0',
         },
         label: {
           textTransform: 'capitalize'
+        },
+        contained: {
+          '&.Mui-disabled': {
+            backgroundColor: 'rgb(170, 170, 170)',
+            color: 'rgb(130, 130, 130)'
+          }
         }
       }
     }
