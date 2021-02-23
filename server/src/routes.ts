@@ -16,4 +16,6 @@ routes.get('/users/:id/records', UserController.records);
 
 routes.post('/equipments', EquipmentController.create);
 
+routes.get('/equipments', EquipmentController.index);
+
 export default routes;

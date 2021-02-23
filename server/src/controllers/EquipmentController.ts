@@ -18,4 +18,12 @@ export default {
 
         return response.status(201).json(equipment);
     },
+
+    async index(request: Request, response: Response) {
+        const EquipmentRepository = getRepository(Equipment);
+
+        const equipments = await EquipmentRepository.find();
+
+        return response.status(200).json(equipments);
+    }
 }
