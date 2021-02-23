@@ -21,4 +21,6 @@ routes.get('/equipments', EquipmentController.index);
 
 routes.post('/exercises', ExerciseController.create);
 
+routes.get('/exercises', ExerciseController.index);
+
 export default routes;

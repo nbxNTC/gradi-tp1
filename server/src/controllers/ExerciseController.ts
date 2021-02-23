@@ -28,4 +28,12 @@ export default {
 
         return response.status(201).json(exercise);
     },
+
+    async index(request: Request, response: Response) {
+        const ExerciseRepository = getRepository(Exercise);
+
+        const exercises = await ExerciseRepository.find();
+
+        return response.status(200).json(exercises);
+    }
 }
