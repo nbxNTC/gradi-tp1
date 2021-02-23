@@ -35,7 +35,19 @@ export class createExercises1614094598679 implements MigrationInterface {
                     type: 'decimal'
                 },
                 {
+                    name: 'day',
+                    type: 'varchar'
+                },
+                {
+                    name: 'schedule',
+                    type: 'varchar'
+                },
+                {
                     name: 'equipment_id',
+                    type: 'integer'
+                },
+                {
+                    name: 'record_id',
                     type: 'integer'
                 }
             ],
@@ -44,6 +56,14 @@ export class createExercises1614094598679 implements MigrationInterface {
                     name: 'ExerciseEquipment',
                     columnNames: ['equipment_id'],
                     referencedTableName: 'equipments',
+                    referencedColumnNames: ['id'],
+                    onUpdate: 'CASCADE',
+                    onDelete: 'CASCADE'
+                },
+                {
+                    name: 'ExerciseRecord',
+                    columnNames: ['record_id'],
+                    referencedTableName: 'records',
                     referencedColumnNames: ['id'],
                     onUpdate: 'CASCADE',
                     onDelete: 'CASCADE'

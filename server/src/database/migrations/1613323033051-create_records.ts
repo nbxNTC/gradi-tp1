@@ -15,7 +15,11 @@ export class createRecords1613323033051 implements MigrationInterface {
                     generationStrategy: 'increment',
                 },
                 {
-                    name: 'information',
+                    name: 'title',
+                    type: 'text'
+                },
+                {
+                    name: 'observation',
                     type: 'text'
                 },
                 {
@@ -31,7 +35,8 @@ export class createRecords1613323033051 implements MigrationInterface {
                     referencedColumnNames: ['id'],
                     onUpdate: 'CASCADE',
                     onDelete: 'CASCADE'
-                }
+                },
+                
             ]
         }))
     }

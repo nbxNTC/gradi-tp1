@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import User from './User';
+import Exercise from './Exercise';
 
 
 @Entity('records')
@@ -8,7 +9,10 @@ export default class Record {
     id!: number;
 
     @Column()
-    information!: string;
+    title!: string;
+
+    @Column()
+    observation!: string;
 
     @Column()
     user_id!: number;
@@ -16,4 +20,11 @@ export default class Record {
     @ManyToOne(() => User, user => user.records)
     @JoinColumn({ name: 'user_id'})
     user!: User;
+
+    @OneToMany(() => Exercise, exercise => exercise.equipment, {
+        cascade: ['insert', 'update']
+    })
+
+    @JoinColumn({name: 'equipment_id'})
+    exercises!: Exercise;
 }

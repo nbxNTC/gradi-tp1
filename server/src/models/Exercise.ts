@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import Equipment from './Equipment';
+import Record from './Record';
 
 
 @Entity('exercises')
@@ -23,9 +24,22 @@ export default class Equipament {
     rest!: number;
 
     @Column()
+    day!: string;
+
+    @Column()
+    schedule!: string;
+
+    @Column()
     equipment_id!: number;
+
+    @Column()
+    record_id!: number;
 
     @ManyToOne(() => Equipment, equipment => equipment.exercises)
     @JoinColumn({ name: 'equipment_id'})
     equipment!: Equipment;
+
+    @ManyToOne(() => Record, record => record.exercises)
+    @JoinColumn({ name: 'record_id'})
+    record!: Record;
 }

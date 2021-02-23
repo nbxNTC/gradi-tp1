@@ -10,7 +10,10 @@ export default {
             series,
             repetitions,
             rest,
-            equipment_id
+            day,
+            schedule,
+            equipment_id,
+            record_id
         } = request.body;
     
         const ExerciseRepository = getRepository(Exercise);
@@ -21,7 +24,10 @@ export default {
             series,
             repetitions,
             rest,
-            equipment_id
+            day,
+            schedule,
+            equipment_id,
+            record_id
         })
     
         await ExerciseRepository.save(exercise);
