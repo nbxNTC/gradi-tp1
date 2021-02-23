@@ -27,5 +27,5 @@ export default class Equipament {
 
     @ManyToOne(() => Equipment, equipment => equipment.exercises)
     @JoinColumn({ name: 'equipment_id'})
-    equipemnt!: Equipament;
+    equipment!: Equipment;
 }

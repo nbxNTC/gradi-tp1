@@ -2,17 +2,17 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 't
 import Exercise from './Exercise';
 
 @Entity('equipments')
-export default class Equipament {
+export default class Equipment {
     @PrimaryGeneratedColumn('increment')
     id!: number;
 
     @Column()
     name!: string;
 
-    @OneToMany(() => Exercise, exercise => exercise.equipemnt, {
+    @OneToMany(() => Exercise, exercise => exercise.equipment, {
         cascade: ['insert', 'update']
     })
 
-    @JoinColumn({name: 'equipemnt_id'})
+    @JoinColumn({name: 'equipment_id'})
     exercises!: Exercise;
 }
