@@ -29,10 +29,10 @@ export default class Equipament {
     @Column()
     schedule!: string;
 
-    @Column()
+    @Column({select: false})
     equipment_id!: number;
 
-    @Column()
+    @Column({select: false})
     record_id!: number;
 
     @ManyToOne(() => Equipment, equipment => equipment.exercises)

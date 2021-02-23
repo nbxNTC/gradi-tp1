@@ -14,7 +14,7 @@ export default class Record {
     @Column()
     observation!: string;
 
-    @Column()
+    @Column({select: false})
     user_id!: number;
     
     @ManyToOne(() => User, user => user.records)

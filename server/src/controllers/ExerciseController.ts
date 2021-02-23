@@ -38,7 +38,9 @@ export default {
     async index(request: Request, response: Response) {
         const ExerciseRepository = getRepository(Exercise);
 
-        const exercises = await ExerciseRepository.find();
+        const exercises = await ExerciseRepository.find({
+            relations: ['equipment']
+        });
 
         return response.status(200).json(exercises);
     }
