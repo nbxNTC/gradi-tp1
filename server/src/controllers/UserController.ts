@@ -53,7 +53,8 @@ export default {
         const userRepository = getRepository(User);
 
         const user = await userRepository.find({
-            relations: ['records']
+            relations: ['records'],
+            where: { id: id}
         });
 
         return response.status(200).json(user);
