@@ -5,14 +5,16 @@ import Record from '../models/Record';
 export default {
     async create(request: Request, response: Response) {
         const {
-            information,
+            title,
+            observation,
             user_id
         } = request.body;
     
         const RecordRepository = getRepository(Record);
     
         const record = RecordRepository.create({
-            information,
+            title,
+            observation,
             user_id
         })
     
