@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect, createContext } from 'react'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 
 import './global.css'
 
 import Routes from './routes'
+
+export const Context = createContext()
 
 const App = () => {
 
@@ -39,10 +41,18 @@ const App = () => {
     }
   })
 
+  const [state, setState] = useState()
+
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+
   return (
-    <ThemeProvider theme={theme}>
-      <Routes />
-    </ThemeProvider>
+    <Context.Provider value={{ state, setState }}>
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    </Context.Provider>
   )
 }
 
