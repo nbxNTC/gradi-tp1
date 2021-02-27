@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { useHistory } from 'react-router-dom'
 import { validate } from 'validate.js'
+import axios from 'axios'
+
 import { 
   TextField,
   Button,
   InputAdornment,
   Select,
-  MenuItem
+  MenuItem,
+  Snackbar
 } from '@material-ui/core'
+import MuiAlert from '@material-ui/lab/Alert'
 
 import { formatDate, getOnlyNumbersString } from '../../helpers/utils'
 
@@ -102,7 +106,7 @@ const Register = () => {
 
   const hasError = (name) => Boolean(formState.touched[name] && formState.errors[name])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!formState.isValid) return
 
@@ -121,11 +125,30 @@ const Register = () => {
       gender: gender === 2 ? true : false,
       weight,
       height,
-      observation
+      observation,
+      role: false
     }
 
-    console.log(body)
+    try {
+      const res = await axios.post(process.env.REACT_APP_BASE_URL + 'users', body)
+      
+      if (res.status === 201) {
+        setFeedback({
+          type: 'success',
+          message: `Usuário criado com sucesso! Seu ID é ${res.data.id}.`
+        })
+
+        setFormState(initialState)
+      }
+    } catch (err) {
+      setFeedback({
+        type: 'error',
+        message: 'Erro ao criar usuário!'
+      })
+    }
   }
+
+  const [feedback, setFeedback] = useState()
 
   return (
     <div className='container'>
@@ -227,6 +250,10 @@ const Register = () => {
           </Button>
         </form>
       </div>
+
+      <Snackbar open={feedback} onClose={() => setFeedback(null)} autoHideDuration={8000} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <MuiAlert severity={feedback?.type} variant='filled' >{feedback?.message}</MuiAlert>
+      </Snackbar>
     </div>
   )
 }
