@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 
+import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 import './global.css'
 
 import Routes from './routes'
