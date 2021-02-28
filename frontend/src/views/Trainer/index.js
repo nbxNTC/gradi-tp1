@@ -47,43 +47,31 @@ const Trainer = () => {
           <h1 style={{ marginTop: '4rem' }}>Atalhos</h1>
           <Button
             fullWidth
-            style={{
-              marginBottom: '1rem',
-              color: 'black',
-              fontWeight: 'bold'
-            }}
+            style={{ marginBottom: '1rem' }}
             color='secondary'
             variant='contained'
             type='button'
-            onClick={() => {}}
+            onClick={() => history.push('/treinador/alunos')}
           >
             Ver alunos
           </Button>
           <Button
             fullWidth
-            style={{
-              marginBottom: '1rem',
-              color: 'black',
-              fontWeight: 'bold'
-            }}
+            style={{ marginBottom: '1rem' }}
             color='secondary'
             variant='contained'
             type='button'
-            onClick={() => {}}
+            onClick={() => history.push('/treinador/dashboard')}
           >
             Ver dashboard
           </Button>
           <Button
             fullWidth
-            style={{
-              marginBottom: '1rem',
-              color: 'black',
-              fontWeight: 'bold'
-            }}
+            style={{ marginBottom: '1rem' }}
             color='secondary'
             variant='contained'
             type='button'
-            onClick={() => {}}
+            onClick={() => history.push('/treinador/equipamentos')}
           >
             Cadastrar equipamentos
           </Button>

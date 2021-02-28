@@ -6,6 +6,7 @@ import Login from './views/Login'
 import Register from './views/Register'
 
 import Trainer from './views/Trainer'
+import Equipments from './views/Equipments'
 
 const Routes = () => {
 
@@ -20,6 +21,7 @@ const Routes = () => {
         {state?.currentUser?.role && (
           <>
             <Route path="/treinador" component={Trainer} exact/>
+            <Route path="/treinador/equipamentos" component={Equipments} exact/>
           </>
         )}
       </Switch>
