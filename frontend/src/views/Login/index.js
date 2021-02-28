@@ -13,7 +13,7 @@ import img from '../../assets/logo.png'
 const Login = () => {
 
   const history = useHistory()
-  const { setState } = useContext(Context)
+  const { state, setState } = useContext(Context)
 
   const [id, setId] = useState('')
 
@@ -25,6 +25,10 @@ const Login = () => {
       
       if (res.status === 200) {
         setState(state => ({
+          ...state,
+          currentUser: res.data
+        }))
+        localStorage.setItem('state', JSON.stringify({
           ...state,
           currentUser: res.data
         }))

@@ -45,6 +45,11 @@ const App = () => {
 
   useEffect(() => {
     console.log(state)
+    
+    if (!state) {
+      const localState = localStorage.getItem('state')
+      if (localState) setState(JSON.parse(localState))
+    }
   }, [state])
 
   return (
