@@ -54,10 +54,13 @@ export default {
 
     async getExercisesByRecord(request: Request, response: Response) {
         try {
+            const { id } = request.params;
+
             const ExerciseRepository = getRepository(Exercise);
 
             const exercises = await ExerciseRepository.find({
-                relations: ['equipment']
+                relations: ['equipment'],
+                where: {record_id: id},
             });
             return response.status(200).json(exercises);
         } catch(error) { 
