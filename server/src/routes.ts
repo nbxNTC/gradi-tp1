@@ -23,4 +23,6 @@ routes.post('/exercises', ExerciseController.create);
 
 routes.get('/exercises', ExerciseController.index);
 
+routes.get('/exercises/:id/records', ExerciseController.getExercisesByRecord);
+
 export default routes;

@@ -4,22 +4,26 @@ import Record from '../models/Record';
 
 export default {
     async create(request: Request, response: Response) {
-        const {
-            title,
-            observation,
-            user_id
-        } = request.body;
+        try {
+            const {
+                title,
+                observation,
+                user_id
+            } = request.body;
+        
+            const RecordRepository = getRepository(Record);
+        
+            const record = RecordRepository.create({
+                title,
+                observation,
+                user_id
+            })
+        
+            await RecordRepository.save(record);
     
-        const RecordRepository = getRepository(Record);
-    
-        const record = RecordRepository.create({
-            title,
-            observation,
-            user_id
-        })
-    
-        await RecordRepository.save(record);
-
-        return response.status(201).json(record);
+            return response.status(201).json(record);
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
     },
 }

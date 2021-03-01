@@ -4,6 +4,11 @@ import User from '../models/User';
 
 export default {
     async create(request: Request, response: Response) {
+        try {
+
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
         const {
             name,
             birth_date,
@@ -32,6 +37,11 @@ export default {
     },
 
     async index(request: Request, response: Response) {
+        try {
+
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
         const userRepository = getRepository(User);
 
         const users = await userRepository.find();
@@ -40,6 +50,11 @@ export default {
     },
 
     async show(request: Request, response: Response) {
+        try {
+
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
         const { id } = request.params;
         const userRepository = getRepository(User);
 
@@ -49,6 +64,11 @@ export default {
     },
 
     async records(request: Request, response: Response) {
+        try {
+
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
         const { id } = request.params;
         const userRepository = getRepository(User);
 
