@@ -53,7 +53,7 @@ export default {
         const userRepository = getRepository(User);
 
         const user = await userRepository.find({
-            relations: ['records','records.exercises', 'records.exercises.equipment'],
+            relations: ['records'],
             where: {id: id},
         });
 
