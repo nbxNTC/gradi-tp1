@@ -1,0 +1,94 @@
+.topbar {
+  width: 100%;
+  height: 6rem;
+
+  background-color: #141414;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.topbar img {
+  height: 3.5rem;
+}
+
+.topbar ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar ul li {
+  margin: 0 2rem;
+
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 1rem;
+  color: white;
+}
+
+.topbar ul li:hover {
+  color: #fed800;
+}
+
+.students-content {
+  width: 100%;
+  padding: 4rem 5rem;
+
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.students-content .students {
+  width: 60rem;
+}
+
+.students-content .students h1 {
+  margin-bottom: 1rem;
+}
+
+.students-content .students .scroll {
+  max-height: 25rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+
+  overflow-y: auto;
+}
+
+.students-content .students .student {
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.students-content .students .student:last-child {
+  margin-bottom: 0;
+}
+
+.students-content .students .student .actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.students-content .students .student .actions button {
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+}

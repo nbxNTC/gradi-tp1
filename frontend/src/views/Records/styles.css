@@ -1,0 +1,90 @@
+.back-container button {
+  margin-top: 2rem;
+  margin-left: 5rem;
+
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.records-content {
+  width: 100%;
+  padding: 4rem 5rem;
+
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.records-content .profile {
+  width: 25rem;
+}
+
+.records-content .profile h1 {
+  margin-bottom: 1rem;
+}
+
+.records-content .profile p {
+  margin-bottom: .5rem;
+}
+
+.records-content form {
+  width: 25rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.records-content form > * {
+  margin-bottom: 1rem;
+}
+
+.records-content .records {
+  width: 25rem;
+}
+
+.records-content .records h1 {
+  margin-bottom: 1rem;
+}
+
+.records-content .records .scroll {
+  max-height: 25rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+
+  overflow-y: auto;
+}
+
+.records-content .records .record {
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.records-content .records .record:last-child {
+  margin-bottom: 0;
+}
+
+.records-content .records .record .actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.records-content .records .record .actions button {
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+}

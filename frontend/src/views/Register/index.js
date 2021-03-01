@@ -185,7 +185,7 @@ const Register = () => {
                 variant='outlined'
                 name='gender'
                 value={formState.values.gender || ''}
-                onChange={handleChange}              
+                onChange={handleChange}
               >
                 <MenuItem value={1} disabled>Gênero</MenuItem>
                 <MenuItem value={2}>Masculino</MenuItem>
