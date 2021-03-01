@@ -84,7 +84,7 @@ const Trainer = () => {
           <h3>Data de Nascimento</h3>
           <p>{moment(state.currentUser.birth_date).format('DD/MM/YYYY')}</p>
           <h3>Peso</h3>
-          <p>{state.currentUser.weight} Kg</p>
+          <p>{state.currentUser.weight} kg</p>
           <h3>Altura</h3>
           <p>{state.currentUser.height} cm</p>
           <h3>Gênero</h3>

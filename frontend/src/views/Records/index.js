@@ -142,7 +142,7 @@ const Records = () => {
           <h3>Data de Nascimento</h3>
           <p>{moment(history.location.state.birth_date).format('DD/MM/YYYY')}</p>
           <h3>Peso</h3>
-          <p>{history.location.state.weight} Kg</p>
+          <p>{history.location.state.weight} kg</p>
           <h3>Altura</h3>
           <p>{history.location.state.height} cm</p>
           <h3>Gênero</h3>

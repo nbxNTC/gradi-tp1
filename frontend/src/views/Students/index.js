@@ -61,7 +61,12 @@ const Students = () => {
           <div className='scroll'>
             {users.filter(item => !item.role).map(item => (
               <div className='student' key={item.id}>
-                <p>{item.name}</p>
+                <p>
+                  <span style={{ fontWeight: 600 }}>Nome:</span> {item.name} 
+                  <span style={{ fontWeight: 600, marginLeft: '1rem' }}>Peso:</span> {item.weight}kg 
+                  <span style={{ fontWeight: 600, marginLeft: '1rem' }}>Altura:</span> {item.height}cm
+                  <span style={{ fontWeight: 600, marginLeft: '1rem' }}>Gênero:</span> {item.gender ? 'Masculino' : 'Feminino'}
+                </p>
                 <div className='actions'>
                   <button onClick={() => history.push('/treinador/alunos/fichas', item)}>
                     Ver fichas
