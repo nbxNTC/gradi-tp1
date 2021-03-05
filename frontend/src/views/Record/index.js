@@ -38,10 +38,21 @@ const Record = () => {
 
   const history = useHistory()
 
+  const record = history.location.state
+  const [exercises, setExercises] = useState([])
   const [equipments, setEquipments] = useState([])
 
   const fetchData = async () => {
-    
+    try {
+      const res = await axios.get(process.env.REACT_APP_BASE_URL + 'exercises/' + record.id + '/records')
+      if (res.status === 200) setExercises(res.data)
+    } catch (err) {
+      setFeedback({
+        type: 'error',
+        message: 'Erro ao exibir exercícios!'
+      })
+    }
+
     try {
       const res = await axios.get(process.env.REACT_APP_BASE_URL + 'equipments')
       if (res.status === 200) setEquipments(res.data)
@@ -152,7 +163,6 @@ const Record = () => {
     try {
       const res = await axios.post(process.env.REACT_APP_BASE_URL + 'exercises', body)
       
-      console.log(res.data)
       if (res.status === 201) {
         setFeedback({
           type: 'success',
@@ -160,6 +170,7 @@ const Record = () => {
         })
 
         setFormState(initialState)
+        fetchData()
       }
     } catch (err) {
       setFeedback({
@@ -171,7 +182,6 @@ const Record = () => {
 
   const [feedback, setFeedback] = useState()
 
-  const exercises = history.location.state.exercises
   const DAYS = [
     'MON',
     'TUE',
@@ -205,61 +215,59 @@ const Record = () => {
         <button onClick={() => history.goBack()}>Voltar</button>
       </div>
       <div className='record-content'>
-        <div className='record-info'>
-          <h1>Ficha do Aluno</h1>
-          <h3>Título</h3>
-          <p>{history.location.state.title}</p>
-          <h3>Observações</h3>
-          <p>{history.location.state.observation ? 'Nenhuma observação' : 'Nenhuma observação'}</p>
-        </div>
+        <div className='left'>
+          <div className='record-info'>
+            <h1>Ficha do Aluno</h1>
+            <h3>Título</h3>
+            <p>{history.location.state.title}</p>
+            <h3>Observações</h3>
+            <p>{history.location.state.observation ? 'Nenhuma observação' : 'Nenhuma observação'}</p>
+          </div>
 
-        <div className='exercises'>
-          <h1>Exercícios da ficha</h1>
-          <div className='scroll'>
-            {DAYS.map(day => (
-              <>
-                <h3>{DAYS_PT[day]}</h3>
-                {SCHEDULES.map(schedule => (
-                  <>
-                    {Boolean(exercises.filter(exercise => exercise.day === day && exercise.schedule === schedule).length) && (
-                      <>
-                        <h4>{SCHEDULES_PT[schedule]}</h4>
-                        {exercises.filter(exercise => exercise.day === day && exercise.schedule === schedule).map(item => (
-                          <div className='record' key={item.id}>
-                            <div className='row'>
-                              <h3>Exercício:</h3>
-                              <p>{item.title}</p>
+          <div className='exercises'>
+            <h1>Exercícios da ficha</h1>
+            <div className='scroll'>
+              {DAYS.map(day => (
+                <div className='col'>
+                  <h3>{DAYS_PT[day]}</h3>
+                  {SCHEDULES.map(schedule => (
+                    <>
+                      {Boolean(exercises.length && exercises.filter(exercise => exercise.day === day && exercise.schedule === schedule).length) && (
+                        <>
+                          <h4>{SCHEDULES_PT[schedule]}</h4>
+                          {exercises.filter(exercise => exercise.day === day && exercise.schedule === schedule).map(item => (
+                            <div className='record' key={item.id}>
+                              <div className='row'>
+                                <h3>Exercício</h3>
+                                <p>{item.title}</p>
+                              </div>
+                              <div className='row'>
+                                <h3>Equipamento</h3>
+                                <p>{item.equipment.name}</p>
+                              </div>
+                              <div className='row'>
+                                <h3>Séries e Repetições</h3>
+                                <p>{item.series} - {item.repetitions}</p>
+                              </div>
+                              <div className='row'>
+                                <h3>Descanço</h3>
+                                <p>{item.rest} segundos</p>
+                              </div>
+                              <div className='row'>
+                                <h3>Observação</h3>
+                                <p>{item.observation !== '' ? item.observation : 'Nenhuma observação'}</p>
+                              </div>
                             </div>
-                            <div className='row'>
-                              <h3>Equipamento:</h3>
-                              <p>{item.equipment.name}</p>
-                            </div>
-                            <div className='row'>
-                              <h3>Séries:</h3>
-                              <p>{item.series}</p>
-                            </div>
-                            <div className='row'>
-                              <h3>Repetições:</h3>
-                              <p>{item.repetitions}</p>
-                            </div>
-                            <div className='row'>
-                              <h3>Descanço:</h3>
-                              <p>{item.rest} segundos</p>
-                            </div>
-                            <div className='row'>
-                              <h3>Observação:</h3>
-                              <p style={{ textAlign: 'right' }}>{item.observation !== '' ? item.observation : 'Nenhuma observação'}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </>
-                    )}
-                  </>
-                ))}
+                          ))}
+                        </>
+                      )}
+                    </>
+                  ))}
 
-                {!exercises.filter(exercise => exercise.day === day).length && <p>Nenhum exercício cadastrado</p>}
-              </>
-            ))}
+                  {!exercises.filter(exercise => exercise.day === day).length && <p>Nenhum exercício</p>}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
