@@ -38,37 +38,34 @@ export default {
 
     async index(request: Request, response: Response) {
         try {
-
-        } catch(error) { 
-            return response.status(400).json(error);
-        }
         const userRepository = getRepository(User);
 
         const users = await userRepository.find();
 
         return response.status(200).json(users);
+
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
     },
 
     async show(request: Request, response: Response) {
         try {
 
-        } catch(error) { 
-            return response.status(400).json(error);
-        }
         const { id } = request.params;
         const userRepository = getRepository(User);
 
         const user = await userRepository.findOneOrFail(id);
 
         return response.status(200).json(user);
-    },
-
-    async records(request: Request, response: Response) {
-        try {
 
         } catch(error) { 
             return response.status(400).json(error);
         }
+    },
+
+    async records(request: Request, response: Response) {
+        try {
         const { id } = request.params;
         const userRepository = getRepository(User);
 
@@ -84,5 +81,9 @@ export default {
         //let group = user[0].records[0].exercises.reduce((r, a) => { console.log("a", a); console.log('r', r); r[a.schedule] = [...r[a.schedule] || [], a]; return r;}, {});console.log("group", group);
 
         return response.status(200).json(user);
+        
+        } catch(error) { 
+            return response.status(400).json(error);
+        }
     },
 }
