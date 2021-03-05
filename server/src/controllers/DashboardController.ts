@@ -71,12 +71,28 @@ export default {
                    return total;
             }, {});
 
-            console.log(equipmentUsage); 
+            
+            let exercisesPercByDay: number[] = [];
+
+            exercisesPercByDay[0] = exercisesOnMon / exercises.length
+            exercisesPercByDay[1] = exercisesOnTue / exercises.length
+            exercisesPercByDay[2] = exercisesOnWed / exercises.length
+            exercisesPercByDay[3] = exercisesOnThu / exercises.length
+            exercisesPercByDay[4] = exercisesOnTry / exercises.length
+
+            
+            let exercisesPercBySchedule: number[] = [];
+
+            exercisesPercBySchedule[0] = exercisesInMorning / exercises.length
+            exercisesPercBySchedule[1] = exercisesInAfternoon / exercises.length
+            exercisesPercBySchedule[2] = exercisesAtNight / exercises.length
 
             return response.status(200).json({
                 exercisesByDay,
                 exercisesBySchedule,
-                equipmentUsage
+                equipmentUsage,
+                exercisesPercByDay,
+                exercisesPercBySchedule
             })
 
         } catch(error) { 
