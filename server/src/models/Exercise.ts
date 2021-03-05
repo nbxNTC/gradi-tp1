@@ -4,7 +4,7 @@ import Record from './Record';
 
 
 @Entity('exercises')
-export default class Equipament {
+export default class Exercise {
     @PrimaryGeneratedColumn('increment')
     id!: number;
 

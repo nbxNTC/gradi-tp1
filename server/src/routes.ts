@@ -3,6 +3,7 @@ import RecordController from './controllers/RecordController';
 import UserController from './controllers/UserController';
 import EquipmentController from './controllers/EquipmentController';
 import ExerciseController from './controllers/ExerciseController';
+import DashboardController from './controllers/DashboardController';
 const routes = Router();
 
 routes.post('/users', UserController.create);
@@ -24,5 +25,7 @@ routes.post('/exercises', ExerciseController.create);
 routes.get('/exercises', ExerciseController.index);
 
 routes.get('/exercises/:id/records', ExerciseController.getExercisesByRecord);
+
+routes.get('/dashboard', DashboardController.index);
 
 export default routes;
