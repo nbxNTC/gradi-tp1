@@ -87,12 +87,42 @@ export default {
             exercisesPercBySchedule[1] = exercisesInAfternoon / exercises.length
             exercisesPercBySchedule[2] = exercisesAtNight / exercises.length
 
+            const UserRepository = getRepository(User);
+
+            const users = await UserRepository.find();
+
+            var men: number = 0;
+            var women: number = 0;
+
+            let genders = users.map(function(item, key){
+                if(item.gender){
+                return men++
+                } 
+                return women++
+            })
+
+            const genderStats = {
+                'men': men,
+                'women': women
+            }
+
+            let average = (array) => array.reduce((a, b) => a + b) / array.length;
+
+            average(users.map((user) => user.height));
+            const avgHeight = average(users.map((user) => user.height));
+
+            average(users.map((user) => user.weight));
+            const avgWeigth = average(users.map((user) => user.weight));
+
             return response.status(200).json({
                 exercisesByDay,
                 exercisesBySchedule,
                 equipmentUsage,
                 exercisesPercByDay,
-                exercisesPercBySchedule
+                exercisesPercBySchedule,
+                genderStats,
+                avgHeight,
+                avgWeigth
             })
 
         } catch(error) { 
