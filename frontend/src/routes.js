@@ -10,6 +10,7 @@ import Students from './views/Students'
 import Records from './views/Records'
 import Record from './views/Record'
 import Equipments from './views/Equipments'
+import Dashboard from './views/Dashboard'
 
 const Routes = () => {
 
@@ -28,6 +29,7 @@ const Routes = () => {
             <Route path="/treinador/alunos/fichas" component={Records} exact/>
             <Route path="/treinador/alunos/fichas/exercicios" component={Record} exact/>
             <Route path="/treinador/equipamentos" component={Equipments} exact/>
+            <Route path="/treinador/dashboard" component={Dashboard} exact/>
           </>
         )}
       </Switch>
