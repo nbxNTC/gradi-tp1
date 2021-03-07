@@ -19,6 +19,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (id === '') return
 
     try {
       const res = await axios.get(process.env.REACT_APP_BASE_URL + 'users/' + id)
@@ -34,7 +35,7 @@ const Login = () => {
         }))
 
         if (res.data.role) history.push('/treinador')
-        else history.push('/cliente')
+        else history.push('/aluno/fichas', res.data)
       }
     } catch (err) {
       setFeedback({

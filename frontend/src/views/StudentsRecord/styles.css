@@ -1,0 +1,89 @@
+.back-container button {
+  margin-top: 2rem;
+  margin-left: 5rem;
+
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.record-content {
+  width: 100%;
+  padding: 4rem 5rem 0;
+
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.record-content > .left {
+  width: 70rem;
+  margin-bottom: 5rem;
+}
+
+.record-content .record-info h1 {
+  margin-bottom: 1rem;
+}
+
+.record-content .record-info p {
+  margin-bottom: .5rem;
+}
+
+.record-content .exercises > h1,
+.record-content .exercises .scroll > .col > h3,
+.record-content .exercises .scroll > .col  > h4,
+.record-content .exercises .scroll > p {
+  margin-bottom: 1rem;
+}
+
+.record-content .exercises .scroll {
+  padding-right: 1rem;
+
+  /* overflow-y: auto; */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.record-content .exercises .record {
+  width: 12rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.record-content .exercises .record > .row {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-content .exercises .record > .row > h3 {
+  margin-bottom: .2rem;
+}
+
+.record-content .exercises .record > .row > p {
+  margin-bottom: .5rem;
+}
+
+.record-content form {
+  width: 25rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.record-content form > * {
+  margin-bottom: 1rem;
+}

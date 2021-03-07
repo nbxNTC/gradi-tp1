@@ -12,6 +12,9 @@ import Record from './views/Record'
 import Equipments from './views/Equipments'
 import Dashboard from './views/Dashboard'
 
+import StudentsRecords from './views/StudentRecords'
+import StudentsRecord from './views/StudentsRecord'
+
 const Routes = () => {
 
   const { state } = useContext(Context)
@@ -21,6 +24,9 @@ const Routes = () => {
       <Switch>
         <Route path="/" component={Login} exact/>
         <Route path="/register" component={Register} exact/>
+
+        <Route path="/aluno/fichas" component={StudentsRecords} exact/>
+        <Route path="/aluno/fichas/exercicios" component={StudentsRecord} exact/>
 
         {state?.currentUser?.role && (
           <>
